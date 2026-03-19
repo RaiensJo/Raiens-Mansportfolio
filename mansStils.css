@@ -1,0 +1,23 @@
+/* 10. punkts: Fona bilde un teksta stils */
+body {
+    background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('fons.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+/* Padarām sadaļas glītākas */
+section {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
