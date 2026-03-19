@@ -1,0 +1,110 @@
+# 1. Izveidojam mapju struktūru
+mkdir -p CSS Images
+
+# 2. Izveidojam index.html
+cat <<EOF > index.html
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raiens Jonāns - Portfolio</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="CSS/mansStils.css">
+</head>
+<body>
+<div class="w3-bar w3-black w3-card">
+  <a href="index.html" class="w3-bar-item w3-button">Sākums</a>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Attēlu apstrāde</button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a href="#rastrs" class="w3-bar-item w3-button">Rastra grafika</a>
+      <a href="#vektors" class="w3-bar-item w3-button">Vektorgrafika</a>
+    </div>
+  </div>
+  <a href="#teksts" class="w3-bar-item w3-button">Teksta apstrāde</a>
+  <a href="#izklajlapas" class="w3-bar-item w3-button">Izklājlapas</a>
+  <a href="#video" class="w3-bar-item w3-button">Video</a>
+  <a href="otrais.html" class="w3-bar-item w3-button">Individuālā tēma</a>
+</div>
+<div class="w3-content w3-container w3-padding-64">
+  <h1 class="w3-center">Mana datorikas mājaslapa</h1>
+  <section id="teksts" class="w3-padding-32"><h2>3. Tekstāpstrāde</h2><p>Apraksts par Word darbiem.</p></section>
+  <section id="rastrs" class="w3-padding-32"><h2>4.a Rastra grafika</h2><img src="Images/animacija.gif" alt="GIF" style="max-width:300px;"></section>
+  <section id="vektors" class="w3-padding-32"><h2>4.b Vektorgrafika</h2><img src="Images/logo.png" alt="Logo" style="max-width:200px;"></section>
+  <section id="3d" class="w3-padding-32"><h2>5. 3D modelēšana</h2><img src="Images/kuba_skaldne.jpg" alt="3D" style="max-width:400px;"></section>
+  <section id="video" class="w3-padding-32"><h2>6. Video</h2><video width="100%" controls><source src="Images/video.mp4" type="video/mp4"></video></section>
+  <section id="izklajlapas" class="w3-padding-32"><h2>7. Izklājlapas</h2><a href="aprekini.xlsx" class="w3-button w3-blue">aprekini.xlsx</a></section>
+  <footer class="w3-center w3-padding-16">
+    <a href="forma.html" class="w3-button w3-light-grey">Kalkulators</a>
+    <a href="dzerdaudz.html" class="w3-button w3-light-grey">Dzērieni</a>
+    <a href="otrais.html" class="w3-button w3-light-grey">Tēma</a>
+  </footer>
+</div>
+</body>
+</html>
+EOF
+
+# 3. Izveidojam CSS/mansStils.css
+cat <<EOF > CSS/mansStils.css
+body {
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('../Images/fons.jpg');
+    background-size: cover; background-attachment: fixed;
+    font-family: sans-serif; color: #222;
+}
+section { background: rgba(255,255,255,0.5); padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+EOF
+
+# 4. Izveidojam otrais.html
+cat <<EOF > otrais.html
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="CSS/mansStils.css">
+</head>
+<body class="w3-content w3-padding-64">
+    <h1>Individuālā tēma</h1>
+    <img src="Images/plakats.jpg" style="width:100%;">
+    <p><a href="https://google.lv">Informācijas avots</a></p>
+    <a href="index.html#video" class="w3-button w3-black">Atpakaļ uz Video</a>
+</body>
+</html>
+EOF
+
+# 5. Izveidojam forma.html
+cat <<EOF > forma.html
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script>
+        function calc(op) {
+            var s1 = parseFloat(document.getElementById('n1').value);
+            var s2 = parseFloat(document.getElementById('n2').value);
+            var r = (op=='+') ? s1+s2 : (op=='-') ? s1-s2 : s1/s2;
+            document.getElementById('r').innerHTML = "Rezultāts: " + r;
+        }
+    </script>
+</head>
+<body class="w3-container w3-padding-32">
+    <input type="number" id="n1"> <input type="number" id="n2">
+    <button onclick="calc('+')">+</button><button onclick="calc('-')">-</button><button onclick="calc('/')">/</button>
+    <button onclick="location.reload()">Reset</button>
+    <h3 id="r"></h3><a href="index.html">Sākums</a>
+</body>
+</html>
+EOF
+
+# 6. Izveidojam dzerdaudz.html un dzer.html
+cat <<EOF > dzerdaudz.html
+<ul><li>Ūdens</li><li>Sula</li><li>Tēja</li><li>Kafija</li></ul>
+<a href="dzer.html">Cenas</a>
+EOF
+
+cat <<EOF > dzer.html
+<p>Kafija <button>Pirkt</button> 1.50 EUR</p>
+<a href="index.html">Sākums</a>
+EOF
+
+echo "Gatavs! Visi faili izveidoti mapē."
