@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulators</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script>
+        function aprekins(op) {
+            let n1 = parseFloat(document.getElementById('v1').value) || 0;
+            let n2 = parseFloat(document.getElementById('v2').value) || 0;
+            let rez = 0;
+            if(op === '+') rez = n1 + n2;
+            if(op === '-') rez = n1 - n2;
+            if(op === '/') rez = n2 !== 0 ? n1 / n2 : "Kļūda (dalīšana ar 0)";
+            document.getElementById('rezultats').innerText = "Rezultāts: " + rez;
+        }
+    </script>
+</head>
+<body class="w3-container w3-padding-large w3-light-grey">
+    <div class="w3-card-4 w3-white w3-padding" style="max-width:400px; margin:auto; margin-top:50px;">
+        <h2>Kalkulators</h2>
+        <input type="number" id="v1" class="w3-input w3-border" placeholder="Pirmais skaitlis">
+        <input type="number" id="v2" class="w3-input w3-border w3-margin-top" placeholder="Otrais skaitlis">
+        <div class="w3-margin-top">
+            <button onclick="aprekins('+')" class="w3-button w3-green">+</button>
+            <button onclick="aprekins('-')" class="w3-button w3-red">-</button>
+            <button onclick="aprekins('/')" class="w3-button w3-blue">/</button>
+            <button onclick="location.reload()" class="w3-button w3-black">Reset</button>
+        </div>
+        <h3 id="rezultats" class="w3-text-blue">Rezultāts: </h3>
+        <hr>
+        <a href="index.html" class="w3-button w3-block w3-dark-grey">Atpakaļ uz sākumu</a>
+    </div>
+</body>
+</html>
